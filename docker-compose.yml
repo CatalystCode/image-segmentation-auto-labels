@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+
+  autolabeller:
+    build:
+      context: .
+    ports:
+      - 8080:80
