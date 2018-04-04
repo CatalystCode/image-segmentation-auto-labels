@@ -18,5 +18,5 @@ First, build and run the auto-labelling service via docker:
 docker-compose up --build
 ```
 
-This will start the auto-labelling service on port 8080. You can use the [test page](https://github.com/CatalystCode/image-segmentation-auto-labels/blob/master/test_page.html)
+This will start the auto-labelling service on port 8080. You can use the [test page](https://catalystcode.github.io/image-segmentation-auto-labels/)
 to experiment with the service.
