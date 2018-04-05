@@ -3,7 +3,9 @@ $(document).ready(function() {
   var $algorithmStatus = $('#algorithm-status');
   var $endpoint = $('#endpoint');
   var $error = $('#error');
-  var $maskedImage = $('#masked-image');
+  var $maskFigure = $('#mask-figure');
+  var $maskImage = $('#mask-image');
+  var $maskCaption = $('#mask-caption');
   var $imagePath = $('#image-path');
   var $morph = $('#morph');
   var $progress = $('#progress');
@@ -49,19 +51,20 @@ $(document).ready(function() {
       json: true,
       success: function(response) {
         var base64 = 'data:' + response.type + ';' + response.encoding + ', ' + response.content;
-        $maskedImage.attr('src', base64);
+        $maskImage.attr('src', base64);
+        $maskCaption.text('Result for masking algorithm "' + algorithm + '"');
         $progress.hide();
-        $maskedImage.show();
+        $maskFigure.show();
       },
       error: function(error) {
         $error.show();
         $progress.hide();
-        $maskedImage.hide();
+        $maskFigure.hide();
         console.error(error);
       }
     });
 
-    $maskedImage.hide();
+    $maskFigure.hide();
     $error.hide();
     $progress.show();
   }
