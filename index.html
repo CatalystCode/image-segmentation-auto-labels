@@ -11,31 +11,38 @@
   <script src="./script.js"></script>
 </head>
 <body>
-  <div class="form-group">
-    <label for="endpoint">Endpoint</label>
-    <input id="endpoint" value="http://localhost:8080" class="form-control" />
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+          <label for="endpoint">Endpoint</label>
+          <input id="endpoint" value="http://localhost:8080" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <label for="image-path">Image path or url</label>
+          <input id="image-path" value="/data/test_image.jpg" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <label for="algorithm">Algorithm to run</label>
+          <select id="algorithm" value="otsu_hue" class="form-control"></select>
+          <span class="help-block" id="algorithm-status" style="display:none;"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="morph">Morphology iterations</label>
+          <input id="morph" value="1" class="form-control" type="number" />
+        </div>
+
+        <button class="btn btn-primary" id="run-masking">Run</button>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="alert alert-danger" id="error" style="display:none;">Error!</div>
+
+        <img class="img-responsive img-thumbnail" id="masked-image" style="display:none;"></img>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="image-path">Image path or url</label>
-    <input id="image-path" value="/data/test_image.jpg" class="form-control" />
-  </div>
-
-  <div class="form-group">
-    <label for="algorithm">Algorithm to run</label>
-    <select id="algorithm" value="otsu_hue" class="form-control"></select>
-    <span class="help-block" id="algorithm-status" style="display:none;"></span>
-  </div>
-
-  <div class="form-group">
-    <label for="morph">Morphology iterations</label>
-    <input id="morph" value="1" class="form-control" type="number" />
-  </div>
-
-  <button class="btn btn-primary" id="run-masking">Run</button>
-
-  <div class="alert alert-danger" id="error" style="display:none;">Error!</div>
-
-  <img class="img-responsive" id="masked-image" style="display:none;"></img>
 </body>
 </html>
