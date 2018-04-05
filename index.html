@@ -13,19 +13,26 @@
 <body>
   <div class="form-group">
     <label for="endpoint">Endpoint</label>
-    <input id="endpoint" value="http://localhost:8080/mask" class="form-control" />
+    <input id="endpoint" value="http://localhost:8080" class="form-control" />
+  </div>
 
+  <div class="form-group">
     <label for="input">Image path or url</label>
     <input id="input" value="/data/test_image.jpg" class="form-control" />
+  </div>
 
+  <div class="form-group">
     <label for="algorithm">Algorithm to run</label>
-    <input id="algorithm" value="otsu_hue" class="form-control" />
+    <select id="algorithm" value="otsu_hue" class="form-control"></select>
+    <span class="help-block" id="algorithm-status" style="display:none;"></span>
+  </div>
 
+  <div class="form-group">
     <label for="morph">Morphology iterations</label>
     <input id="morph" value="1" class="form-control" type="number" />
-
-    <button class="btn btn-primary" id="submit">Run</button>
   </div>
+
+  <button class="btn btn-primary" id="submit">Run</button>
 
   <div class="alert alert-info" id="progress" style="display:none;">Running...</div>
   <div class="alert alert-danger" id="error" style="display:none;">Error!</div>
