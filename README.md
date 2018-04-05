@@ -12,6 +12,8 @@ the companion Azure Notebook: [Using Otsu's method to pre-label training data fo
 
 ## Usage
 
+### As a web service
+
 Pull and run the auto-labelling service via docker:
 
 ```sh
@@ -38,3 +40,15 @@ You can use the [test page](https://catalystcode.github.io/image-segmentation-au
 to interactively experiment with the service.
 
 ![Screenshot of auto-labelling service test page](https://user-images.githubusercontent.com/1086421/38383640-09990032-38db-11e8-9911-6ee8f4e8287e.png)
+
+### As a command line tool
+
+Pull and run the auto-labelling tool via docker:
+
+```sh
+# fetch a list of supported image masking algorithms
+docker run cwolff/image_segmentation_auto_labels /do list_algorithms
+
+# generate a mask for an image using the provided masking algorithm
+docker run cwolff/image_segmentation_auto_labels /do create_mask "/data/test_image.jpg" "otsu_hue" "0"
+```

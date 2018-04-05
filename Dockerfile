@@ -13,6 +13,8 @@ WORKDIR /app
 
 CMD ["hug", "-f", "labelling.py", "-p", "80"]
 
+RUN printf '#!/usr/bin/env bash\nhug -f /app/labelling.py -c $*' > /do && chmod +x /do
+
 ENV MASK_COLOR="(0, 0, 255)"
 ENV OUTPUT_IMAGE_FORMAT="jpg"
 
