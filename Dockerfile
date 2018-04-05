@@ -9,6 +9,10 @@ RUN pip3 install --no-cache-dir -r /app/requirements.txt
 ADD src /app
 ADD test_image.jpg /data/test_image.jpg
 
+RUN pip3 install --no-cache-dir flake8 \
+  && flake8 /app \
+  && pip3 uninstall --yes flake8
+
 WORKDIR /app
 
 CMD ["hug", "-f", "labelling.py", "-p", "80"]
