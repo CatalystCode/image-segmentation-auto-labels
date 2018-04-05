@@ -30,15 +30,17 @@ def image_mask_algorithm_type(value):
 @hug.get('/algorithms')
 @hug.cli()
 def list_algorithms():
+    """Returns a list of supported image masking algorithms."""
     return [name for (name, _) in getmembers(image_masking, isfunction)
             if not name.startswith('_')]
 
 
-@hug.get('/mask')
+@hug.post('/mask')
 @hug.cli()
 def get_mask(image_path: hug.types.text,
              algorithm: image_mask_algorithm_type,
              morph: hug.types.number=1):
+    """Runs the masking algorithm and returns a serialized masked image."""
 
     image_rgb = load_image(image_path)
 
