@@ -12,8 +12,10 @@ $(document).ready(function() {
   var $runMasking = $('#run-masking');
 
   function loadSupportedAlgorithms() {
+    var endpoint = $endpoint.val();
+
     $.ajax({
-      url: $endpoint.val() + '/algorithms',
+      url: endpoint + '/algorithms',
       json: true,
       success: function(response) {
         $algorithmStatus.hide();
@@ -40,15 +42,17 @@ $(document).ready(function() {
     var algorithm = $algorithm.val();
     var morph = $morph.val()
 
-    var request = endpoint +
-      '/mask' +
-      '?image_path=' + imagePath +
-      '&algorithm=' + algorithm +
-      '&morph=' + morph;
-
     $.ajax({
-      url: request,
+      url: endpoint + '/mask',
+      method: 'POST',
       json: true,
+      contentType: 'application/json; charset=utf-8',
+      dataType: 'json',
+      data: JSON.stringify({
+        image_path: imagePath,
+        algorithm: algorithm,
+        morph: morph
+      }),
       success: function(response) {
         var base64 = 'data:' + response.type + ';' + response.encoding + ', ' + response.content;
         $maskImage.attr('src', base64);
