@@ -8,6 +8,8 @@ sudo: required
 services:
   - docker
 
+script: .travis/ci.py
+
 deploy:
   - provider: script
     script: .travis/cd.sh
