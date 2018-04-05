@@ -17,8 +17,8 @@
   </div>
 
   <div class="form-group">
-    <label for="input">Image path or url</label>
-    <input id="input" value="/data/test_image.jpg" class="form-control" />
+    <label for="image-path">Image path or url</label>
+    <input id="image-path" value="/data/test_image.jpg" class="form-control" />
   </div>
 
   <div class="form-group">
@@ -32,11 +32,10 @@
     <input id="morph" value="1" class="form-control" type="number" />
   </div>
 
-  <button class="btn btn-primary" id="submit">Run</button>
+  <button class="btn btn-primary" id="run-masking">Run</button>
 
-  <div class="alert alert-info" id="progress" style="display:none;">Running...</div>
   <div class="alert alert-danger" id="error" style="display:none;">Error!</div>
 
-  <img class="img-responsive" id="image" style="display:none;"></img>
+  <img class="img-responsive" id="masked-image" style="display:none;"></img>
 </body>
 </html>

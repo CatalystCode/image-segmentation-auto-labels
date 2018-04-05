@@ -3,11 +3,11 @@ $(document).ready(function() {
   var $algorithmStatus = $('#algorithm-status');
   var $endpoint = $('#endpoint');
   var $error = $('#error');
-  var $image = $('#image');
-  var $input = $('#input');
+  var $maskedImage = $('#masked-image');
+  var $imagePath = $('#image-path');
   var $morph = $('#morph');
   var $progress = $('#progress');
-  var $submit = $('#submit');
+  var $runMasking = $('#run-masking');
 
   function loadSupportedAlgorithms() {
     $.ajax({
@@ -34,13 +34,13 @@ $(document).ready(function() {
 
   function runImageMasking() {
     var endpoint = $endpoint.val();
-    var image_path = $input.val();
+    var imagePath = $imagePath.val();
     var algorithm = $algorithm.val();
     var morph = $morph.val()
 
     var request = endpoint +
       '/mask' +
-      '?image_path=' + image_path +
+      '?image_path=' + imagePath +
       '&algorithm=' + algorithm +
       '&morph=' + morph;
 
@@ -49,19 +49,19 @@ $(document).ready(function() {
       json: true,
       success: function(response) {
         var base64 = 'data:' + response.type + ';' + response.encoding + ', ' + response.content;
-        $image.attr('src', base64);
+        $maskedImage.attr('src', base64);
         $progress.hide();
-        $image.show();
+        $maskedImage.show();
       },
       error: function(error) {
         $error.show();
         $progress.hide();
-        $image.hide();
+        $maskedImage.hide();
         console.error(error);
       }
     });
 
-    $image.hide();
+    $maskedImage.hide();
     $error.hide();
     $progress.show();
   }
@@ -69,5 +69,5 @@ $(document).ready(function() {
   loadSupportedAlgorithms();
 
   $endpoint.change(loadSupportedAlgorithms);
-  $submit.click(runImageMasking);
+  $runMasking.click(runImageMasking);
 });
