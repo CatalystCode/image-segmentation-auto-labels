@@ -32,11 +32,7 @@ $(document).ready(function() {
     $algorithmStatus.text('Loading...');
   }
 
-  loadSupportedAlgorithms();
-
-  $endpoint.change(loadSupportedAlgorithms);
-
-  $submit.click(function() {
+  function runImageMasking() {
     var endpoint = $endpoint.val();
     var image_path = $input.val();
     var algorithm = $algorithm.val();
@@ -68,5 +64,10 @@ $(document).ready(function() {
     $image.hide();
     $error.hide();
     $progress.show();
-  });
+  }
+
+  loadSupportedAlgorithms();
+
+  $endpoint.change(loadSupportedAlgorithms);
+  $submit.click(runImageMasking);
 });
