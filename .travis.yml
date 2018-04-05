@@ -1,0 +1,16 @@
+language: python
+
+python:
+  - 3.6
+
+sudo: required
+
+services:
+  - docker
+
+deploy:
+  - provider: script
+    script: .travis/cd.sh
+    on:
+      repo: CatalystCode/image-segmentation-auto-labels
+      tags: true

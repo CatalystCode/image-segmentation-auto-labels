@@ -12,10 +12,10 @@ the companion Azure Notebook: [Using Otsu's method to pre-label training data fo
 
 ## Usage
 
-First, build and run the auto-labelling service via docker:
+Pull and run the auto-labelling service via docker:
 
 ```sh
-docker-compose up --build
+docker run -p 8080:80 cwolff/image_segmentation_auto_labels
 ```
 
 This will start the auto-labelling service on port 8080. You can use the [test page](https://catalystcode.github.io/image-segmentation-auto-labels/)
