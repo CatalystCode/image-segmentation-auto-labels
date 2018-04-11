@@ -39,7 +39,7 @@ curl 'http://localhost:8080/mask' -H 'Content-Type: application/json' -d '
 You can use the [test page](https://catalystcode.github.io/image-segmentation-auto-labels/)
 to interactively experiment with the service.
 
-![Screenshot of auto-labelling service test page](https://user-images.githubusercontent.com/1086421/38383640-09990032-38db-11e8-9911-6ee8f4e8287e.png)
+![Screenshot of auto-labelling service test page](https://user-images.githubusercontent.com/1086421/38619525-520268ac-3d6a-11e8-8eb8-80e752dcb2af.png)
 
 ### As a command line tool
 
