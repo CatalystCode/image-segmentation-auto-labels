@@ -26,7 +26,7 @@ $(document).ready(function() {
       },
       error: function(error) {
         $algorithmStatus.parent().addClass('has-error');
-        $algorithmStatus.text('Error while loading supported algorithms.');
+        $algorithmStatus.text('Error while loading supported algorithms. Is docker running?');
         console.error(error);
       }
     });
