@@ -1,5 +1,8 @@
 # image-segmentation-auto-labels
 
+[![CI status](https://travis-ci.org/CatalystCode/image-segmentation-auto-labels.svg?branch=master)](https://travis-ci.org/CatalystCode/image-segmentation-auto-labels)
+[![Docker status](https://img.shields.io/docker/pulls/cwolff/image_segmentation_auto_labels.svg)](https://hub.docker.com/r/cwolff/image_segmentation_auto_labels/)
+
 ## What's this?
 
 This repository contains a Python application that can be used to quickly
